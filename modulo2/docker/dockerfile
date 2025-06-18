@@ -1,0 +1,9 @@
+FROM nginx:alpine
+
+COPY ./html /usr/share/nginx/html
+
+# Expõe a porta 80 para permitir o tráfego HTTP para o contêiner
+EXPOSE 80
+
+# O comando padrão para iniciar o Nginx quando o contêiner for executado
+CMD ["nginx", "-g", "daemon off;"]

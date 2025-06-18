@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rnpk8s-deployment
+  labels:
+    app: rnpk8s
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: rnpk8s
+  template:
+    metadata:
+      labels:
+        app: rnpk8s
+    spec:
+      containers:
+      - name: rnpk8s-container
+        image: thiagoabreulima/rnpk8s:latest
+        ports:
+        - containerPort: 80
