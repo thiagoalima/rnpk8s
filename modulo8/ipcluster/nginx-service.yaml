@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx # Este seletor deve corresponder aos labels do seu Deployment Nginx
+  ports:
+    - protocol: TCP
+      port: 80       # A porta na qual o serviço será acessível dentro do cluster
+      targetPort: 80 # A porta na qual o contêiner Nginx está escutando
+  type: ClusterIP # Define o tipo de serviço como ClusterIP
